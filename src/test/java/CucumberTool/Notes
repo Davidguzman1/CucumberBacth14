@@ -1,0 +1,140 @@
+BDD - behavioral driven development
+-Given
+-When
+-And
+-Then
+
+Use BDD scenarios-to guve a clear understanding to other colleagues
+
+To write the BDD creat a file and make sure to name whatever.feature
+
+User
+
+Search by Id
+  Given user navigates to hrms application
+  When user enters valid username and password
+  And user clicks on login button
+  Then user navigates to dashboard page
+  When user clicks on PIM option
+  And user clicks on employee information button
+  When user enters employee id
+  And user clicks on search button
+  Then user see employee information is displayed
+
+Search by Name
+  Given user navigates to hrms application
+  When user enters valid username and password
+  And user clicks on login button
+  Then user navigates to dashboard page
+  When user clicks on PIM option
+  And user clicks on employee information button
+  When user enters valid employee name
+  And user clicks on search button
+  Then user see employee information is displayed
+
+
+Class 2-
+Feature -User story
+Scenario- Test case- every test case will be considered as scenario in BDD
+Given- pre-requisite/pre-condition
+When- perform actions
+Then- expected output
+And- supporting tag
+
+Step definition- Cucumber provides you the snippet of step definition
+In step definition, we write the code to perform actions which has been written in
+the BDD statement
+
+
+To keep everything organized we need framework
+Framework allows us to write simplified and organized code and
+it provides folder to structure which is easily understandable
+
+In framework we need 2 separate branches for
+Java- In java we write all java classes
+Non-Java - In non-java we write non java part such as features, files, etc.
+
+steps package- for all step definitions
+runners package- for all runner classes
+config directory- for all config files
+feature directory - for all feature files
+
+
+-------------------------------------------------------------------------------------------------------
+
+Runner class -  Cucumber options in runner class
+1.features- to run the feature file we provide a path to its repository
+2. glue - the path of our steps definitions package
+3. dryRun - if we set it to true it stops actual execution and scans all th esteps
+quickly and provide us missing step defenition
+
+4. monochrome - to remove irrelavent info from the console
+5. plugin - pretty - to print the steps inside the console
+6. tags - to group the scenarios for specific type of execution
+
+
+POM - Page object model - it is a design pattern - it is to have organised code and easy to maintain structure
+according to it, we create separate class according to the screens available in the application
+
+it allows QA's to keep object repository-
+in single language, QA's write all the locators of the pages in respective class
+
+LoginPage-
+DashboardPage-
+
+-----------------------------------------------------------------------------------------------------------
+Hooks- we write pre cond. and post cond. using hooks in cucumber
+@Before- pre cond needs to be mentioned in this
+@After- post cond needs to be mentioned in this
+
+Rules- Hooks class must be created inside steps package
+When using hooks always use io.cucumber.java.After or Before when having to import
+
+Background - it is applicable for one feature file
+           - it means for every feature file background will different
+             steps which are common among all the scenarios
+               will be taken into background but make sure the flow is not broken
+               if the flow is breaks, then we cannot take steps in background after that
+
+Hooks are applicable for whole project (All the Feature files)
+Background is applicable for one feature file and varies from file to file
+
+
+Data Table -
+it allows us to pass multiple sets of data without executing background
+
+Examples Table- Hooks and background execute everytime as per data set
+Data Table- hooks and background will only execute once
+
+Cucumber accepts array of byte for screenshot
+WHen we generate any report, this should be under target folder
+
+how to open report
+Right click-> open in browser->chrome
+We used Scenario class of cucumber to get the details of execution
+to generate a report- we use html plugin from runner class
+reports always generate in target folder
+we execute our code from pom.xml file, to achieve this we have used maven surefire plugin
+
+
+to get unique screenshot name, we have implemented timestamp method
+
+
+maven cucumber reporting plugin we use to get
+
+
+Log files- when we execute our code we need to sharpen our debugging skills
+to have quick info about every step of execution we need messages in the form of report
+to get the details added by us we need to create log files
+to create this log file, we use log4j concept
+
+
+Maven life cycle
+compile- source code converts into binary code
+package- code will be packaged into jar files
+install- jars will be installed to local repo.n2
+deploy- here jars will go to remote repo
+test- code will be tested in this lifecycle
+clean- this will clean the target folder
+
+when you run test- compile- test

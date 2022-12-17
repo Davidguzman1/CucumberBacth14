@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: Runners.SmokeRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 35.754 s <<< FAILURE! - in Runners.SmokeRunner
+Add Employee.user adds multiple employee from excel using excel file  Time elapsed: 28.837 s  <<< ERROR!
+java.lang.NullPointerException
+	at Utils.ExcelReader.getSheet(ExcelReader.java:37)
+	at Utils.ExcelReader.excelListIntoMap(ExcelReader.java:58)
+	at StepsDef.AddEmployeeSteps.user_adds_multiple_employee_from_excel_using_and_verify_it(AddEmployeeSteps.java:104)
+	at ✽.user adds multiple employee from excel using "EmployeeData" and verify it(file:///C:/Users/david/IdeaProjects/CucumberBatch14/src/test/resources/features/AddEmployee.feature:44)
+
